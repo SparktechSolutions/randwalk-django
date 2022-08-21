@@ -1,0 +1,72 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+
+    <section id="home" class="slider_area">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="slider-content">
+                                    <h1 class="title">OUR <br> PUBLICATIONS</h1>
+                                    <p class="text">Read and own the world of innovations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- container -->
+                    <div class="slider-image-box d-none d-lg-flex align-items-end">
+                        <div class="slider-image">
+                            <img class="detail-image" src="{% static 'images/publications.png' %}" alt="Hero">
+                        </div>
+                        <!-- slider-imgae -->
+                    </div>
+                    <!-- slider-imgae box -->
+                </div>
+                <!-- carousel-item -->
+
+            </div>
+
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="description">Laborum nostrud velit magna aute tempor nostrud labore aliquip do.
+                        Consequat consequat veniam pariatur ea esse qui amet anim do aute do ea id ad.
+                        Esse fugiat laboris officia labore ipsum labore deserunt anim ad labore mollit
+                        mollit reprehenderit voluptate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="publication" class="team-area pt-120 pb-130 ">
+        <div class="container ">
+            <div class="row justify-content-center">
+                {% for publication in publications %}
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="team-style-eleven text-center mt-30 wow fadeIn " data-wow-duration="1s " data-wow-delay="0s ">
+                        <div class="team-image ">
+                            <img src="{{publication.image.url}}" alt="Publication">
+                        </div>
+                        <div class="publication-content text-left px-4">
+                            <h4 class="publication-name "><a href="# ">{{publication.name}}</a></h4>
+                            <span class="sub-title pt-10">{{publication.description}}</span>
+                            <a class="h6 text-primary pt-3" href="{{publication.link}}">KNOW MORE &#62;&#62;</a>
+                        </div>
+                    </div>
+                    <!-- single team -->
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </section>
+{% endblock %}

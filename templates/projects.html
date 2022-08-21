@@ -1,0 +1,53 @@
+
+{% extends 'index.html'%}
+{% load static %}
+{% block title %} Projects | Rand Walk Research and Solutions Pvt. Ltd. {% endblock %}
+{% block content %}
+
+    <section class="slider_area">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="{% static 'images/project-header.png' %}" alt="Hero">
+                            </div>
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- carousel-item -->
+            </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="description">Laborum nostrud velit magna aute tempor nostrud labore aliquip do.
+                        Consequat consequat veniam pariatur ea esse qui amet anim do aute do ea id ad.
+                        Esse fugiat laboris officia labore ipsum labore deserunt anim ad labore mollit
+                        mollit reprehenderit voluptate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% for project in projects %}
+        <div class="container pb-25">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
+                    <img src="{{project.product_thumbnail.url}}"/>
+                </div>
+                <div class="col-lg-8 col-md-12 px-50">
+                    <h2 class="project-title pt-10 pb-10">{{project.name}}</h2>
+                     <p class="pt-2 text-justify fs-6">{{project.short_description}} </p>
+                    <a class="h6 text-primary pt-3" href="/project/{{project.id}}">KNOW MORE &#62;&#62;</a>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+    </section>
+{% endblock %}
