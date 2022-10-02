@@ -2833,7 +2833,7 @@ p {
 
 .detail-image{
     height: 400px;
-    object-fit: fit;
+    object-fit: contain;
 }
 
 @media (max-width: 767px) {

@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField, RichTextUploadingFormField
 
 
 # Create your models here.
@@ -27,7 +28,8 @@ class Project(models.Model):
     name = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=100, null=True)
     short_description = models.TextField(max_length=500)
-    long_description = models.TextField(max_length=2000)
+    long_description = RichTextUploadingField()
+        # models.TextField(max_length=2000)
     product_image = models.ImageField()
     product_thumbnail = models.ImageField(null=True)
     product_icon = models.ImageField(null=True)
