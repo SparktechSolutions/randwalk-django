@@ -21,15 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-55#lqe(445rkm1rw5((lt59#ojocsiu-b9b$p)i5ejuf9k9%q2'
+SECRET_KEY = 'gw21y88d4o!4la=48yct2oot+y=^n0yk6o3)ahe2-@b0dts^ng'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "4837-2406-7400-63-f6aa-3953-2963-8f5e-d362.ngrok.io"
-]
+ALLOWED_HOSTS = ["randwalkresearch.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -112,13 +109,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'IST'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+# Production Settings
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+
 
 
 # static files (CSS, JavaScript, Images)
