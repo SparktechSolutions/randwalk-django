@@ -117,11 +117,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Production Settings
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
+if not DEBUG: # Production settings
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
 
+    SECURE_HSTS_SECONDS = 3600 # NOTICE that this line was present before but is not commented out
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    ADMINS = [('Emmanuel', 'emmanuelbiju4@gmail.com'), ('Randwalk', "randwalkresearch@gmail.com")]
 
 
 # static files (CSS, JavaScript, Images)
