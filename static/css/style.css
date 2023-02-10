@@ -2836,6 +2836,12 @@ p {
     object-fit: contain;
 }
 
+.thumbnail-image{
+    height: 230px;
+    width: 500px;
+    object-fit: cover;
+}
+
 @media (max-width: 767px) {
    .description {
         font-size: small

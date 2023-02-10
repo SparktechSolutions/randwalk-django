@@ -63,9 +63,14 @@ def buildProjectDetails(request, id):
 
 
 def buildPublications(request):
-    publications = Publication.objects.all()
+    publicationObjects = Publication.objects.all()
+    publications = publicationObjects.filter(publication_type=enums.PublicationType.PUBLICATION.name).all()
+    journals = publicationObjects.filter(publication_type=enums.PublicationType.JOURNAL.name).all()
+    books = publicationObjects.filter(publication_type=enums.PublicationType.BOOK.name).all()
     context = {
         'current_screen': 'publications',
-        'publications': publications
+        'publications': publications,
+        'books': books,
+        'journals': journals
     }
     return render(request, 'publications.html', context)

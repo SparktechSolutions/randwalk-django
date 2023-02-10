@@ -1,8 +1,11 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField, RichTextUploadingFormField
+from . import enums
 
 
 # Create your models here.
+
+
 class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -29,7 +32,7 @@ class Project(models.Model):
     subtitle = models.CharField(max_length=100, null=True)
     short_description = models.TextField(max_length=500)
     long_description = RichTextUploadingField()
-        # models.TextField(max_length=2000)
+    # models.TextField(max_length=2000)
     product_image = models.ImageField()
     product_thumbnail = models.ImageField(null=True)
     product_icon = models.ImageField(null=True)
@@ -40,7 +43,7 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, default=None, on_delete=models.CASCADE)
-    images = models.ImageField(upload_to = 'images/')
+    images = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.project.name
@@ -61,5 +64,5 @@ class Publication(models.Model):
     description = models.TextField(max_length=250)
     image = models.ImageField()
     link = models.CharField(max_length=250)
-
-
+    publication_type = models.CharField(max_length=20, choices=enums.PublicationType.choices(),
+                                        default=enums.PublicationType.PUBLICATION)
