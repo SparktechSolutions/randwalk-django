@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'gw21y88d4o!4la=48yct2oot+y=^n0yk6o3)ahe2-@b0dts^ng'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["15.207.15.159"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "randwalkresearch.com", "15.207.15.159", "www.randwalkresearch.com"]
 
 
 # Application definition
@@ -120,7 +120,7 @@ USE_TZ = True
 if not DEBUG: # Production settings
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = True
+    #SECURE_SSL_REDIRECT = True
 
     SECURE_HSTS_SECONDS = 3600 # NOTICE that this line was present before but is not commented out
     SECURE_HSTS_PRELOAD = True
@@ -133,9 +133,9 @@ if not DEBUG: # Production settings
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+   os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = "/var/www/site/static" #os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = "/var/www/site/static"#os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
