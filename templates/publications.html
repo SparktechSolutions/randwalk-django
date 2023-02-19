@@ -65,7 +65,11 @@
                 <div class="col-lg-8 col-md-12 px-50">
                     <h2 class="project-title pt-10 pb-10">{{publication.name}}</h2>
                      <p class="pt-2 text-justify fs-6">{{publication.description}} </p>
-                    <a class="h6 text-primary pt-3" href="{{publication.link}}">KNOW MORE &#62;&#62;</a>
+                    {% if publication.detailed_information %}
+                        <a class="h6 text-primary pt-3" href="/publication/{{publication.id}}">KNOW MORE &#62;&#62;</a>
+                    {% else %}
+                        <a class="h6 text-primary pt-3" href="{{publication.link}}">KNOW MORE &#62;&#62;</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -93,8 +97,11 @@
                 <div class="col-lg-8 col-md-12 px-50">
                     <h2 class="project-title pt-10 pb-10">{{journal.name}}</h2>
                      <p class="pt-2 text-justify fs-6">{{journal.description}} </p>
-                    <a class="h6 text-primary pt-3" href="{{journal.link}}">KNOW MORE &#62;&#62;</a>
-                </div>
+                    {% if publication.detailed_information %}
+                        <a class="h6 text-primary pt-3" href="/publication/{{journal.id}}">KNOW MORE &#62;&#62;</a>
+                    {% else %}
+                        <a class="h6 text-primary pt-3" href="{{journal.link}}">KNOW MORE &#62;&#62;</a>
+                    {% endif %}                </div>
             </div>
         </div>
         {% endfor %}

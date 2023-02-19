@@ -34,7 +34,6 @@ def buildAboutUs(request):
 
 
 def buildContactUs(request):
-
     context = {
         'current_screen': 'contact-us'
     }
@@ -74,3 +73,12 @@ def buildPublications(request):
         'journals': journals
     }
     return render(request, 'publications.html', context)
+
+
+def buildPublicationDetails(request, id):
+    publication = Publication.objects.get(id=id)
+    context = {
+        'current_screen': 'publication_details',
+        'publication': publication,
+    }
+    return render(request, 'publication_detail.html', context)

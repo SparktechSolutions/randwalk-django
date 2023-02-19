@@ -7,5 +7,6 @@ urlpatterns = [
     path('contact-us', views.buildContactUs, name='contact-us'),
     path('projects', views.buildProjects, name='projects'),
     path('project/<int:id>', views.buildProjectDetails, name='project'),
-    path('publications', views.buildPublications, name='publications')
+    path('publications', views.buildPublications, name='publications'),
+    path('publication/<int:id>', views.buildPublicationDetails, name='publication')
 ]

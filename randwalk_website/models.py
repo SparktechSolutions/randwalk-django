@@ -11,12 +11,18 @@ class Service(models.Model):
     description = models.TextField()
     icon_image = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.title
+
 
 class Slider(models.Model):
     position = models.IntegerField(null=True)
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
     image = models.ImageField()
+
+    def __str__(self):
+        return self.title
 
 
 class Testimonial(models.Model):
@@ -25,6 +31,9 @@ class Testimonial(models.Model):
     message = models.TextField(max_length=200)
     cus_image = models.ImageField()
     rating = models.IntegerField()
+
+    def __str__(self):
+        return self.cus_name
 
 
 class Project(models.Model):
@@ -58,6 +67,9 @@ class TeamMember(models.Model):
     twitter_profile_link = models.CharField(max_length=250, null=True, blank=True)
     profile_image = models.ImageField()
 
+    def __str__(self):
+        return self.name
+
 
 class Publication(models.Model):
     name = models.CharField(max_length=60)
@@ -66,3 +78,7 @@ class Publication(models.Model):
     link = models.CharField(max_length=250)
     publication_type = models.CharField(max_length=20, choices=enums.PublicationType.choices(),
                                         default=enums.PublicationType.PUBLICATION)
+    detailed_information = RichTextUploadingField(null=True)
+
+    def __str__(self):
+        return self.name
