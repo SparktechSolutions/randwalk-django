@@ -6,6 +6,9 @@ admin.site.site_header = "Randwalk Research Admin Panel"
 admin.site.register(Service)
 admin.site.register(Slider)
 admin.site.register(Testimonial)
+admin.site.register(TeamMember)
+admin.site.register(Publication)
+admin.site.register(Conference)
 
 
 class ProjectImageAdmin(admin.StackedInline):
@@ -23,8 +26,3 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(ProjectImage)
 class PostImageAdmin(admin.ModelAdmin):
     pass
-
-
-admin.site.register(TeamMember)
-admin.site.register(Publication)
-admin.site.register(Conference)
