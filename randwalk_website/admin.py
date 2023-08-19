@@ -27,3 +27,4 @@ class PostImageAdmin(admin.ModelAdmin):
 
 admin.site.register(TeamMember)
 admin.site.register(Publication)
+admin.site.register(Conference)

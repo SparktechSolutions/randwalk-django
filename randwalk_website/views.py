@@ -66,11 +66,13 @@ def buildPublications(request):
     publications = publicationObjects.filter(publication_type=enums.PublicationType.PUBLICATION.name).all()
     journals = publicationObjects.filter(publication_type=enums.PublicationType.JOURNAL.name).all()
     books = publicationObjects.filter(publication_type=enums.PublicationType.BOOK.name).all()
+    conferences = Conference.objects.all()
     context = {
         'current_screen': 'publications',
         'publications': publications,
         'books': books,
-        'journals': journals
+        'journals': journals,
+        'conferences': conferences
     }
     return render(request, 'publications.html', context)
 
