@@ -31,6 +31,13 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
+    <style>
+        .override-bootstrap-navbar {
+            display: flex;
+            flex-wrap: nowrap !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -44,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg">
+                    <nav class="navbar navbar-expand-lg override-bootstrap-navbar">
 
                         <a class="navbar-brand" href="/">
                             <img src="{% static 'images/logo.svg' %}" width="35%" alt="Logo">
@@ -350,10 +357,10 @@
                     <!-- social -->
                     <div class="footer-support text-center ">
                         <span class="number ">+91-9845674334</span>
-                        <span class="mail ">support@randwalk.com</span>
+                        <span class="mail ">support@randwalkresearch.com</span>
                     </div>
                     <div class="copyright text-center mt-35 ">
-                        <p class="text ">&copy 2021 <a href="# " rel="nofollow ">Rand Walk Research and Solutions</a> and Developed by <a rel="nofollow " href="# ">ESparktech</a> </p>
+                        <p class="text ">&copy 2021 <a href="# " rel="nofollow ">RandWalk Research and Solutions</a> and Developed by <a rel="nofollow " href="# ">ESparktech</a> </p>
                     </div>
                     <!--  copyright -->
                 </div>

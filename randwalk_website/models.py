@@ -1,5 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField, RichTextUploadingFormField
+from django import forms
+from django.core.validators import EmailValidator
 from . import enums
 
 
@@ -91,3 +93,22 @@ class Conference(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100,
+                           label='Name',
+                           widget=forms.TextInput(attrs={'placeholder': 'Name'}))
+    email = forms.EmailField(validators=[EmailValidator()],
+                             label='Email',
+                             widget=forms.TextInput(attrs={'placeholder': 'Email', 'type': 'email'}))
+    phone = forms.CharField(max_length=15,
+                            label='Phone Number',
+                            widget=forms.TextInput(attrs={'placeholder': 'Mobile', 'type': 'phone'}))
+    subject = forms.CharField(max_length=100,
+                              label='Subject',
+                              widget=forms.TextInput(attrs={'placeholder': 'Subject'}))
+    message = forms.CharField(max_length=500, label='Message', widget=forms.Textarea(attrs={'placeholder': 'Message'}))
+
+    def __str__(self):
+        return self.name + self.email + self.subject

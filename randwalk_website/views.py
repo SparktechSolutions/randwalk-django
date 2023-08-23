@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.http import JsonResponse, HttpResponse
 
@@ -34,8 +34,17 @@ def buildAboutUs(request):
 
 
 def buildContactUs(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        # if form.is_valid():
+        return redirect('success')
+        # else:
+        #     print(form)
+    else:
+        form = ContactForm()
     context = {
-        'current_screen': 'contact-us'
+        'current_screen': 'contact-us',
+        'form': form
     }
     return render(request, 'contact_us.html', context)
 
@@ -84,3 +93,7 @@ def buildPublicationDetails(request, id):
         'publication': publication,
     }
     return render(request, 'publication_detail.html', context)
+
+
+def buildSuccessPage(request):
+    return render(request, 'success.html')
